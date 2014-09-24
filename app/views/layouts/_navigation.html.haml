@@ -1,0 +1,14 @@
+.navbar-header
+  %button.navbar-toggle.collapsed{"data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+    %span.sr-only Toggle navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  = link_to "Company", '/', :class => 'navbar-brand'
+
+.collapse.navbar-collapse
+  %ul.nav.navbar-nav.navbar-right
+    %li.active
+      = link_to('Home', '/')
+    %li
+      = link_to('Something', '/')

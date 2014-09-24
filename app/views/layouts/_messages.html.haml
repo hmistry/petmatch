@@ -1,0 +1,6 @@
+- flash.each do |type, msg|
+  - unless msg.blank?
+    %div{class: "alert #{flash_class(type)} fade in alert-dismissible", role: "alert"}
+      %button.close{"data-dismiss" => "alert"}
+        %span{"aria-hidden" => "true"} ×
+      %p{:id => "flash_#{type}"}= msg
