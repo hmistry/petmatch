@@ -1,0 +1,8 @@
+= simple_form_for(@import) do |f|
+  = f.error_notification
+
+  .form-group
+    = f.input :zipcode, input_html: {class: 'form-control'}
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    / = f.button :cancel, class: 'btn'

@@ -1,0 +1,17 @@
+%h1 Listing shelters
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @shelters.each do |shelter|
+    %tr
+      %td= link_to 'Show', shelter
+      %td= link_to 'Edit', edit_shelter_path(shelter)
+      %td= link_to 'Destroy', shelter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Shelter', new_shelter_path
