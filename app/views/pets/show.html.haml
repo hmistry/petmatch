@@ -1,5 +1,9 @@
-%p#notice= notice
+%h1= @pet.name
 
+%p= "Contact: #{@pet.contact}"
+%p= "Shelter ID: #{@pet.shelter_id_pf}"
+
+%br
 
 = link_to 'Edit', edit_pet_path(@pet)
 \|

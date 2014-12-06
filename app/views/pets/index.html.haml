@@ -1,17 +1,15 @@
-%h1 Listing pets
+%h1 Pets
 
-%table
+%table.table
   %tr
-    %th
-    %th
-    %th
+    %th Name
+    %th Contact
+    %th Shelter ID
 
   - @pets.each do |pet|
     %tr
-      %td= link_to 'Show', pet
-      %td= link_to 'Edit', edit_pet_path(pet)
-      %td= link_to 'Destroy', pet, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to pet.name, pet
+      %td= pet.contact
+      %td= pet.shelter_id_pf
 
 %br
-
-= link_to 'New Pet', new_pet_path

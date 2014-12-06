@@ -12,9 +12,8 @@ RSpec.describe 'Shelters', type: :feature do
 
   context "main listing" do
     it 'can navigate to shelter' do
-      pending
       page.click_link("Acme Pets")
-      expect(current_path).to eq(shelters_path(acme_shelter))
+      expect(current_path).to eq(shelter_path(acme_shelter))
     end
   end
 end
