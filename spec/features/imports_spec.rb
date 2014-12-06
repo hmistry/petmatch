@@ -9,18 +9,6 @@ RSpec.describe 'Imports', type: :feature do
     visit imports_path
   end
 
-  context 'from Nav bar' do
-    it 'can navigate to pets' do
-      page.click_link("Pets")
-      expect(current_path).to eq(pets_path)
-    end
-
-    it 'can navigate to shelters' do
-      page.click_link("Shelters")
-      expect(current_path).to eq(shelters_path)
-    end
-  end
-
   context "form" do
     it 'zipcode with no shelters' do
       pending
