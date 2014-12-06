@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :pet do
+    sequence(:id) { |n| n }
+    # sequence(:id_pf) { |n| n }
+    # name Acme Pets
+    # phone "345-890-1239"
   end
 end

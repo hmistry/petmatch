@@ -1,4 +1,12 @@
-%p#notice= notice
+%h1= @shelter.name.titleize
+
+%p= "Phone: #{@shelter.phone}"
+%p= "Email: #{@shelter.email}"
+%p= "Address:"
+%p= "#{@shelter.address1}"
+%p= "#{@shelter.address2}"
+%p= "#{@shelter.city}, #{@shelter.state} #{@shelter.zip}"
+%p= "#{@shelter.country}"
 
 
 = link_to 'Edit', edit_shelter_path(@shelter)

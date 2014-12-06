@@ -1,17 +1,21 @@
-%h1 Listing shelters
+%h1 Pet Shelter Listing
 
-%table
+%table.table
   %tr
-    %th
-    %th
-    %th
+    %th Name
+    %th Phone
+    %th Email
+    %th City
+    %th State
+    %th Zip
+    %th ID
 
   - @shelters.each do |shelter|
     %tr
-      %td= link_to 'Show', shelter
-      %td= link_to 'Edit', edit_shelter_path(shelter)
-      %td= link_to 'Destroy', shelter, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Shelter', new_shelter_path
+      %td= link_to shelter.name.titleize, shelter
+      %td= shelter.phone
+      %td= shelter.email
+      %td= shelter.city
+      %td= shelter.state
+      %td= shelter.zip
+      %td= shelter.id_pf
