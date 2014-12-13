@@ -9,4 +9,7 @@ class Pet
   field :name, type: String
   field :contact, type: String
 
+  belongs_to :shelter
+
+  validates :shelter, presence: true
 end

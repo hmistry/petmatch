@@ -7,7 +7,8 @@ module Petfinder
     end
 
     def clean_all(arr)
-      [*arr].each { |h| clean(h) }
+      arr = [arr] if arr.class == Hash
+      arr.each { |h| clean(h) }
     end
 
     def clean(hash)

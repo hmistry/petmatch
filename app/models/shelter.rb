@@ -16,6 +16,8 @@ class Shelter
 
   field :id_pf, type: String
 
+  has_many :pets
+
   validates :name, :city, :state, :zip, :country, :id_pf, presence: true
 
   default_scope -> { order(state: :asc, city: :asc, name: :asc) }

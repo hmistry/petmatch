@@ -14,6 +14,7 @@ class ShelterImporter
   def import(zipcode)
     shelters = fetch_shelters(zipcode)
     return [] if shelters.nil?
+    shelters = [shelters] if shelters.class == Hash
 
     shelters.each do |shelter|
       if shelter["zip"] == zipcode
@@ -30,8 +31,7 @@ private
   def save_shelter(shelter)
     s = Shelter.find_or_initialize_by(shelter)
     unless s.persisted?
-      s.save
-      shelters_imported.push(shelter["id_pf"])
+      shelters_imported.push(shelter["id_pf"]) if s.save
     end
   end
 
