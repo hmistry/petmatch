@@ -19,7 +19,7 @@ class ShelterImporter
       if shelter["zip"] == zipcode
         save_shelter(shelter)
       else
-        nearby_zipcodes.push(shelter["zip"])
+        nearby_zipcodes.push(shelter["zip"]) if zip_exists(shelter["zip"])
       end
     end
 
@@ -41,5 +41,9 @@ private
 
   def fetch_shelters(zipcode)
     petfinder.find_shelters(zipcode)
+  end
+
+  def zip_exists(zipcode)
+    Shelter.where(zip: zipcode).count == 0
   end
 end
