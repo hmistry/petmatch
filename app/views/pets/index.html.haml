@@ -3,13 +3,13 @@
 %table.table
   %tr
     %th Name
-    %th Contact
+    %th Pet ID
     %th Shelter ID
 
   - @pets.each do |pet|
     %tr
       %td= link_to pet.name, pet
-      %td= pet.contact
+      %td= pet.shelter_pet_id_pf
       %td= pet.shelter_id_pf
 
 %br

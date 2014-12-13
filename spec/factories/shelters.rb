@@ -10,5 +10,6 @@ FactoryGirl.define do
     city "sunnyland"
     state "AA"
     zip "12345"
+    country "USA"
   end
 end

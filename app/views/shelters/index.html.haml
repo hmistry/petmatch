@@ -1,21 +1,21 @@
-%h1 Pet Shelter Listing
+%h1 Pet Shelters
 
 %table.table
   %tr
-    %th Name
-    %th Phone
-    %th Email
-    %th City
-    %th State
-    %th Zip
-    %th ID
+    %th.col-sm-2 Name
+    %th.col-sm-2 Phone
+    %th.col-sm-2 Email
+    %th.col-sm-2 Address
+    %th.col-sm-2 City
+    %th.col-sm-1 State
+    %th.col-sm-1 Zip
 
   - @shelters.each do |shelter|
     %tr
       %td= link_to shelter.name.titleize, shelter
       %td= shelter.phone
       %td= shelter.email
+      %td= shelter.address1.titleize unless shelter.address1.nil?
       %td= shelter.city
       %td= shelter.state
       %td= shelter.zip
-      %td= shelter.id_pf

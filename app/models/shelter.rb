@@ -16,4 +16,12 @@ class Shelter
 
   field :id_pf, type: String
 
+  validates :name, :city, :state, :zip, :country, :id_pf, presence: true
+
+  default_scope -> { order(state: :asc, city: :asc, name: :asc) }
+
+  def address
+    return "#{address1}, #{address2}" if address2 && !address2.empty?
+    "#{address1}"
+  end
 end

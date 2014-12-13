@@ -15,5 +15,4 @@ RSpec.describe 'Shelters', type: :feature do
       page.click_link("Acme Pets")
       expect(current_path).to eq(shelter_path(acme_shelter))
     end
-  end
 end
