@@ -12,6 +12,7 @@ class PetImporter
     shelter_ids.each do |shelter_id|
       pets = fetch_pets(shelter_id)
       next if pets.nil?
+
       shelter = Shelter.where(id_pf: shelter_id).first
       pets = [pets] if pets.class == Hash
 

@@ -47,7 +47,7 @@ module Petfinder
     # ["options", "breeds", "shelterPetId", "status", "name", "contact", "description", "sex", "age", "size", "mix", "shelterId", "lastUpdate", "media", "animal", "id_pf"]
     def initialize
       @keys_ren = [{old: "id", new: "id_pf"}, {old: "shelterPetId", new: "shelter_pet_id_pf"}, {old: "shelterId", new: "shelter_id_pf"}]
-      @keys_del = %w(id shelterPetId shelterId options breeds status description sex age size mix lastUpdate media animal)
+      @keys_del = %w(id shelterPetId shelterId lastUpdate media)
     end
   end
 

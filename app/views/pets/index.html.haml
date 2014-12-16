@@ -1,15 +1,25 @@
 %h1 Pets
-
+%br
 %table.table
   %tr
     %th Name
-    %th Pet ID
-    %th Shelter ID
+    %th Animal
+    %th Mix
+    %th Age
+    %th Sex
+    %th Size
+    %th Status
+    %th Shelter
 
   - @pets.each do |pet|
     %tr
-      %td= link_to pet.name, pet
-      %td= pet.shelter_pet_id_pf
-      %td= pet.shelter_id_pf
+      %td= link_to pet.name.titleize, pet
+      %td= pet.animal
+      %td= pet.mix
+      %td= pet.age
+      %td= pet.sex
+      %td= pet.size
+      %td= pet.status
+      %td= link_to pet.shelter.name.titleize, pet.shelter
 
 %br

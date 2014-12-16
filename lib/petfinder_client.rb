@@ -13,21 +13,19 @@ module Petfinder
     def find_shelters(zipcode)
       api_get("/shelter.find", {location: zipcode})
 
-      json_shelters = @json["petfinder"]["shelters"]["shelter"]
-      return nil if json_invalid? || json_shelters.nil?
+      return nil if json_invalid? || @json["petfinder"]["shelters"]["shelter"].nil?
 
-      clean_json(ShelterCleaner.new, json_shelters)
-      json_shelters
+      clean_json(ShelterCleaner.new, @json["petfinder"]["shelters"]["shelter"])
+      @json["petfinder"]["shelters"]["shelter"]
     end
 
     def get_pets(shelter_id)
       api_get("/shelter.getPets", {id: shelter_id})
 
-      json_pets = @json["petfinder"]["pets"]["pet"]
-      return nil if json_invalid? || json_pets.nil?
+      return nil if json_invalid? || @json["petfinder"]["pets"]["pet"].nil?
 
-      clean_json(PetCleaner.new, json_pets)
-      json_pets
+      clean_json(PetCleaner.new, @json["petfinder"]["pets"]["pet"])
+      @json["petfinder"]["pets"]["pet"]
     end
 
     def api_get(url, params)
