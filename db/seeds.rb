@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ANIMALS = %w(Barnyard Bird Cat Dog Horse Pig Rabbit Reptile Smallflurry)
+ANIMALS.each { |animal| Animal.create(type: animal) }

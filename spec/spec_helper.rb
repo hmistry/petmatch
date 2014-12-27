@@ -17,6 +17,7 @@
 RSpec.configure do |config|
   # database cleaner config
   config.before(:suite) do
+    Rails.application.load_seed
     DatabaseCleaner.strategy = :truncation
   end
   config.before(:each) do
@@ -85,7 +86,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  
+
 =end
   config.order = :random
 

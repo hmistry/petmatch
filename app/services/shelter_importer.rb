@@ -14,7 +14,7 @@ class ShelterImporter
   def import(zipcode)
     shelters = fetch_shelters(zipcode)
     return [] if shelters.nil?
-    shelters = [shelters] if shelters.class == Hash
+    shelters = [shelters] if shelters.is_a?(Hash)
 
     shelters.each do |shelter|
       if shelter["zip"] == zipcode

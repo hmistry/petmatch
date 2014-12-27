@@ -14,7 +14,7 @@
   - @pets.each do |pet|
     %tr
       %td= link_to pet.name.titleize, pet
-      %td= pet.animal
+      %td= pet.animal.type
       %td= pet.mix
       %td= pet.age
       %td= pet.sex
