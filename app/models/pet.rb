@@ -18,6 +18,7 @@ class Pet
   field :age, type: String
   field :size, type: String
   field :mix, type: String
+  field :image_url, type: String
 
   belongs_to :shelter
   belongs_to :animal
@@ -32,4 +33,50 @@ class Pet
   validates :age, inclusion: AGES
   validates :status, inclusion: STATUSES
   validates :size, inclusion: SIZES
+
+  def sex_description
+    case sex
+    when 'M'
+      'Male'
+    when 'F'
+      'Female'
+    else
+      'Unknown'
+    end
+  end
+
+  def mix_description
+    case mix
+    when 'yes'
+      'Mix'
+    else
+      'Pure'
+    end
+  end
+
+  def status_description
+    case status
+    when 'A'
+      'Adoptable'
+    when 'H'
+      'On Hold'
+    when 'P'
+      'Pending'
+    else
+      'Adopted'
+    end
+  end
+
+  def size_description
+    case size
+    when 'S'
+      'Small'
+    when 'M'
+      'Medium'
+    when 'L'
+      'Large'
+    else
+      'Extra Large'
+    end
+  end
 end

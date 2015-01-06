@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :shelter do
-    # sequence(:id) { |n| n }
     name "Acme Pets"
     phone "345-890-1239"
     email "daffy@acme.com"

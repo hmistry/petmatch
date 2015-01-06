@@ -1,0 +1,35 @@
+$body-bg:               #ecf0f1;
+$text-color:            lighten(#000000, 33.5%);
+$brand-primary: #5a8fc3; //#5289bd; //#93b6c7; #4d8fac; #94afb5;
+
+$label-default-bg: darken(#c7d5d8, 6.5%);
+$btn-primary-bg: #94afb5;
+
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:400,600,300); //|Ubuntu:300,400,500|Raleway:100,200,300,400);
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:        'Open Sans', $font-family-sans-serif;
+
+$headings-font-family:        'Lato', $font-family-sans-serif;
+$headings-font-weight:  300;
+
+$container-large-desktop: 960px;
+$grid-gutter-width: 20px;
+
+$panel-default-heading-bg: #fff;
+$panel-footer-bg: #fff;
+$panel-default-text: $text-color;
+
+$navbar-height: 70px;
+$navbar-default-bg: $body-bg;
+$navbar-default-border: $body-bg;
+$navbar-default-color: $text-color;
+
+$navbar-default-link-color:                #7ab389; // darken(#a7ceb1, 12.5%);
+$navbar-default-link-hover-color:          darken($navbar-default-link-color, 15%);
+$navbar-default-link-hover-bg:             transparent;
+$navbar-default-link-active-color:         $navbar-default-link-color;
+$navbar-default-link-active-bg:            transparent;
+$navbar-default-link-disabled-color:       darken($navbar-default-link-color, 20%);
+$navbar-default-link-disabled-bg:          transparent;
+

@@ -1,21 +1,22 @@
-%h1 Pet Shelters
+%h2 Pet Shelters
 %br
-%table.table
-  %tr
-    %th.col-sm-2 Name
-    %th.col-sm-2 Phone
-    %th.col-sm-2 Email
-    %th.col-sm-2 Address
-    %th.col-sm-2 City
-    %th.col-sm-1 State
-    %th.col-sm-1 Zip
-
-  - @shelters.each do |shelter|
+.panel.panel-default
+  %table.table
     %tr
-      %td= link_to shelter.name.titleize, shelter
-      %td= shelter.phone
-      %td= shelter.email
-      %td= shelter.address1.titleize unless shelter.address1.nil?
-      %td= shelter.city
-      %td= shelter.state
-      %td= shelter.zip
+      %th.col-sm-2 Name
+      %th.col-sm-2 Phone
+      %th.col-sm-2 Email
+      %th.col-sm-2 Address
+      %th.col-sm-2 City
+      %th.col-sm-1 State
+      %th.col-sm-1 Zip
+
+    - @shelters.each do |shelter|
+      %tr
+        %td= link_to shelter.name.titleize, shelter
+        %td= shelter.phone
+        %td= shelter.email.downcase
+        %td= shelter.address1.titleize unless shelter.address1.nil?
+        %td= shelter.city
+        %td= shelter.state
+        %td= shelter.zip

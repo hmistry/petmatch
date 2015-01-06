@@ -1,14 +1,21 @@
-%h1= @shelter.name.titleize
+.row.extra-padding
+  .col-sm-8.col-sm-offset-2
+    %p= link_to 'Back', shelters_path
 
-%p= "Phone: #{@shelter.phone}"
-%p= "Email: #{@shelter.email}"
-%p= "Address:"
-%p= "#{@shelter.address1}"
-%p= "#{@shelter.address2}"
-%p= "#{@shelter.city}, #{@shelter.state} #{@shelter.zip}"
-%p= "#{@shelter.country}"
+    .panel.panel-default
+      .panel-heading.pet-panel-padding
+        %h3= @shelter.name.titleize
+      .panel-body.pet-panel-padding.pet-panel-padding-body
+        %dl
+          %dt Address:
+          %dd= @shelter.address
+          %dd= "#{@shelter.city}, #{@shelter.state} #{@shelter.zip}"
+          %br
+          %dt Phone:
+          %dd= @shelter.phone
+          %br
+          %dt Email:
+          %dd= @shelter.email.downcase
 
 
-= link_to 'Edit', edit_shelter_path(@shelter)
-\|
-= link_to 'Back', shelters_path
+

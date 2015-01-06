@@ -3,8 +3,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 RSpec.describe 'Shelters', type: :feature do
-  5.times { |n| FactoryGirl.create(:shelter, name: "Bunny Pets #{n}") }
-  let!(:shelter) { FactoryGirl.create(:shelter) }
+  let!(:shelter) { FactoryGirl.create(:shelter); puts 'shelter' }
 
   before :each do
     visit shelters_path
@@ -24,6 +23,8 @@ RSpec.describe 'Shelters', type: :feature do
     end
 
     it 'has N shelter items + header row' do
+      5.times { |n| FactoryGirl.create(:shelter, name: "Bunny Pets #{n}") }
+      visit shelters_path
       table = page.find('//table')
       expect(table).to have_selector('tr', count: 7)
     end

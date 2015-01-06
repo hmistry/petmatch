@@ -27,6 +27,7 @@ private
     animal = get_animal(pet)
     options = get_options(pet)
     breeds = get_breeds(pet, animal)
+    photo = get_photos(pet)
     p = Pet.find_or_initialize_by(pet)
 
     unless p.persisted?
@@ -34,6 +35,7 @@ private
       p.animal = animal
       p.options = options
       p.breeds = breeds
+      p.image_url = photo
       @imported_count += 1 if p.save
     end
   end
@@ -55,7 +57,7 @@ private
   end
 
   def get_options(pet)
-    return nil if pet["options"]["option"].nil?
+    return nil if pet["options"].nil? || pet["options"]["option"].nil?
     opts = extract(pet, "options")
 
     if opts["option"].is_a?(Array)
@@ -66,7 +68,7 @@ private
   end
 
   def get_breeds(pet, animal)
-    return nil if pet["breeds"]["breed"].nil?
+    return nil if pet["breeds"].nil? || pet["breeds"]["breed"].nil?
     breeds = extract(pet, "breeds")
 
     if breeds["breed"].is_a?(Array)
@@ -75,4 +77,16 @@ private
       return [Breed.find_or_create_by(type: breeds["breed"], animal: animal)]
     end
   end
+
+  def get_photos(pet)
+    return nil if pet["media"].nil? || pet["media"]["photos"].nil? || pet["media"]["photos"]["photo"].nil?
+    photos = extract(pet, "media")
+
+    if photos["photos"]["photo"].is_a?(Array)
+      photos["photos"]["photo"].select { |url| url.include?("width=300") }.first
+    else
+      nil
+    end
+  end
+
 end

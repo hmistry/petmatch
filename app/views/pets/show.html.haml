@@ -1,10 +1,40 @@
-%h1= @pet.name
+.row.extra-padding-pet
+  .col-sm-10.col-sm-offset-1
+    %p= link_to 'Back', pets_path
 
-%p= "Contact: #{@pet.contact}"
-%p= "Shelter ID: #{@pet.shelter_id_pf}"
-
-%br
-
-= link_to 'Edit', edit_pet_path(@pet)
-\|
-= link_to 'Back', pets_path
+    .panel.panel-default
+      .panel-heading.pet-panel-padding
+        %h3= @pet.name
+      .panel-body.pet-panel-padding.pet-panel-padding-body
+        .row
+          .col-sm-6
+            %img.img-rounded.pet-image{src: (@pet.image_url.nil?) ? image_path("placeholder-banner-dog.jpg") : @pet.image_url}
+          .col-sm-6
+            %p.label.label-default= @pet.status_description
+            %br
+            %p
+            %ul.list-inline
+              %li= @pet.animal.type
+              %li= @pet.age
+              %li= @pet.sex_description
+              %li= @pet.size_description
+              %li= @pet.mix_description
+            %br
+            %dl
+              %dt ID:
+              %dd= @pet.shelter_pet_id_pf
+              %br
+              %dt Options:
+              %dd= @pet.options.map { |e| e.name }.join(", ")
+              %br
+              %dt Breed:
+              %dd= @pet.breeds.map { |e| e.type }.join(", ")
+              %br
+              %dt Shelter:
+              %dd= @pet.shelter.name
+              %br
+        .row.pet-description
+          .col-sm-12
+            %strong Description:
+            %p= @pet.description
+            %br

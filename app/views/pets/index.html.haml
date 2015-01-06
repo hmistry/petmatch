@@ -1,25 +1,20 @@
 %h1 Pets
 %br
-%table.table
-  %tr
-    %th Name
-    %th Animal
-    %th Mix
-    %th Age
-    %th Sex
-    %th Size
-    %th Status
-    %th Shelter
 
-  - @pets.each do |pet|
-    %tr
-      %td= link_to pet.name.titleize, pet
-      %td= pet.animal.type
-      %td= pet.mix
-      %td= pet.age
-      %td= pet.sex
-      %td= pet.size
-      %td= pet.status
-      %td= link_to pet.shelter.name.titleize, pet.shelter
-
-%br
+- @pets.each_slice(3) do |three_pets|
+  .row
+    - three_pets.each do |pet|
+      .col-sm-4
+        .panel.panel-default
+          .panel-heading.pet-heading
+            %img.center-block.img-rounded.pet-image{src: (pet.image_url.nil?) ? image_path("placeholder-banner-dog.jpg") : pet.image_url}
+          .panel-body
+            %p.lead.text-center= link_to truncate(pet.name.titleize, length: 25, separator: ' '), pet
+            %ul.list-inline.text-muted
+              %li= pet.age
+              %li= pet.sex_description
+              %li= pet.size_description
+              %li= pet.mix_description
+            %ul.list-inline
+              %li= link_to truncate(pet.shelter.name.titleize, length: 35, separator: ' '), pet.shelter
+              %li.label.label-default.pull-right= pet.status_description
