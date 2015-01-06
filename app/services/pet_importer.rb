@@ -79,7 +79,11 @@ private
   end
 
   def get_photos(pet)
-    return nil if pet["media"].nil? || pet["media"]["photos"].nil? || pet["media"]["photos"]["photo"].nil?
+    if pet["media"].nil? || pet["media"]["photos"].nil? || pet["media"]["photos"]["photo"].nil?
+      pet.delete("media")
+      return nil
+    end
+
     photos = extract(pet, "media")
 
     if photos["photos"]["photo"].is_a?(Array)

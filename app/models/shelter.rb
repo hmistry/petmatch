@@ -1,6 +1,5 @@
 class Shelter
   include Mongoid::Document
-  # ["country", "longitude", "name", "phone", "state", "address2", "email", "city", "zip", "fax", "latitude", "id", "address1"]
 
   field :name, type: String
   field :phone, type: String

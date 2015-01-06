@@ -12,6 +12,10 @@ RSpec.describe Breed, :type => :model do
     expect(breed).to_not be_valid
   end
 
+  it "associated with pets" do
+    expect(breed).to respond_to(:pets)
+  end
+
   it "associated with animal" do
     expect(breed).to respond_to(:animal)
   end

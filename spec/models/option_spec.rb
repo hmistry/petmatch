@@ -11,4 +11,8 @@ RSpec.describe Option, :type => :model do
     option.name = nil
     expect(option).to_not be_valid
   end
+
+  it "associated with pets" do
+    expect(option).to respond_to(:pets)
+  end
 end

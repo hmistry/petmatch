@@ -1,6 +1,5 @@
 class Pet
   include Mongoid::Document
-  # ["options", "breeds", "shelterPetId", "status", "name", "contact", "description", "sex", "age", "size", "mix", "shelterId", "lastUpdate", "media", "animal", "id_pf"]
 
   GENDERS = %w(M F U)
   SIZES = %w(S M L XL)

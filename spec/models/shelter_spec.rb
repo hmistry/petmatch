@@ -7,6 +7,15 @@ RSpec.describe Shelter, :type => :model do
     expect(shelter).to be_valid
   end
 
+  it 'valid without phone, email, address1, address2' do
+    shelter.phone = nil
+    shelter.email = nil
+    shelter.address1 = nil
+    shelter.address2 = nil
+
+    expect(shelter).to be_valid
+  end
+
   it 'invalid without name' do
     shelter.name = nil
     expect(shelter).to_not be_valid
@@ -55,6 +64,7 @@ RSpec.describe Shelter, :type => :model do
     shelter_six = FactoryGirl.create(:shelter, state: "HZ", city: "Boredland", name: "Zap Inc")
     shelter_seven = FactoryGirl.create(:shelter, state: "HZ", city: "Sunnyland", name: "Acme Pets")
     shelter_eight = FactoryGirl.create(:shelter, state: "HZ", city: "sunnyland", name: "Zap Inc")
+
     expect(Shelter.all).to eq([shelter_one, shelter_two, shelter_three, shelter_four, shelter_five, shelter_six, shelter_seven, shelter_eight])
   end
 end
