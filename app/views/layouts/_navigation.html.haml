@@ -8,9 +8,9 @@
 
 .collapse.navbar-collapse
   %ul.nav.navbar-nav.navbar-right
-    %li.active
+    %li{class: "#{'active' if current_page?(root_path) || current_page?(pets_path)}"}
       = link_to('PETS', '/pets')
-    %li
+    %li{class: "#{'active' if current_page?(shelters_path)}"}
       = link_to('SHELTERS', '/shelters')
-    %li
+    %li{class: "#{'active' if current_page?(imports_path)}"}
       = link_to('IMPORT', '/imports')
