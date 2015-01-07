@@ -16,5 +16,5 @@
               %li= pet.size_description
               %li= pet.mix_description
             %ul.list-inline
-              %li= link_to truncate(pet.shelter.name.titleize, length: 35, separator: ' '), pet.shelter
+              %li= link_to truncate(pet.shelter.name.titleize, length: 30, separator: ' '), pet.shelter
               %li.label.label-default.pull-right= pet.status_description

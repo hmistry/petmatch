@@ -3,9 +3,8 @@
 .panel.panel-default
   %table.table
     %tr
-      %th.col-sm-2 Name
-      %th.col-sm-2 Phone
-      %th.col-sm-2 Email
+      %th.col-sm-3 Name
+      %th.col-sm-3 Phone/Email
       %th.col-sm-2 Address
       %th.col-sm-2 City
       %th.col-sm-1 State
@@ -14,9 +13,11 @@
     - @shelters.each do |shelter|
       %tr
         %td= link_to shelter.name.titleize, shelter
-        %td= shelter.phone
-        %td= shelter.email.downcase
-        %td= shelter.address1.titleize unless shelter.address1.nil?
-        %td= shelter.city
-        %td= shelter.state
-        %td= shelter.zip
+        %td.small
+          = shelter.phone
+          %br
+          = shelter.email.downcase
+        %td.small= shelter.address1.titleize unless shelter.address1.nil?
+        %td.small= shelter.city
+        %td.small= shelter.state
+        %td.small= shelter.zip

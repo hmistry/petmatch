@@ -10,12 +10,12 @@ RSpec.describe 'Shelters', type: :feature do
   end
 
   context "View" do
-    it 'has table headers: name, phone, email, address, city, state, zip' do
+    it 'has table headers: name, phone/email, address, city, state, zip' do
       header = page.find('//table').first('tr')
-      expect(header).to have_selector('th', count: 7)
+
+      expect(header).to have_selector('th', count: 6)
       expect(header).to have_text("Name")
-      expect(header).to have_text("Phone")
-      expect(header).to have_text("Email")
+      expect(header).to have_text("Phone/Email")
       expect(header).to have_text("Address")
       expect(header).to have_text("City")
       expect(header).to have_text("State")
@@ -28,7 +28,5 @@ RSpec.describe 'Shelters', type: :feature do
       table = page.find('//table')
       expect(table).to have_selector('tr', count: 7)
     end
-
-    it 'displays shelters by city & state, then by name in ascending order'
   end
 end
