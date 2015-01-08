@@ -31,7 +31,7 @@
               %dd= @pet.breeds.map { |e| e.type }.join(", ")
               %br
               %dt Shelter:
-              %dd= @pet.shelter.name
+              %dd= link_to @pet.shelter.name.titleize, @pet.shelter
               %br
         .row.pet-description
           .col-sm-12
