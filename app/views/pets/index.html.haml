@@ -18,3 +18,5 @@
             %ul.list-inline
               %li= link_to truncate(pet.shelter.name.titleize, length: 30, separator: ' '), pet.shelter
               %li.label.label-default.pull-right= pet.status_description
+
+= will_paginate @pets

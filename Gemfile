@@ -47,7 +47,7 @@ gem 'haml-rails'
 gem 'erb2haml', group: :development
 
 gem 'simple_form'
-# gem 'bootstrap-will_paginate'
+gem 'bootstrap-will_paginate'
 
 # User authentications
 # gem 'devise'
