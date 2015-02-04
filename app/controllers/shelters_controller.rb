@@ -9,11 +9,11 @@ class SheltersController < ApplicationController
   end
 
   private
-    def set_shelter
-      @shelter = Shelter.find(params[:id])
-    end
+  def set_shelter
+    @shelter = Shelter.find(params[:id])
+  end
 
-    def page_params
-      params.permit(:page)
-    end
+  def page_params
+    params.permit(:page)
+  end
 end

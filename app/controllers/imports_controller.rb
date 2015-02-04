@@ -4,7 +4,7 @@ class ImportsController < ApplicationController
   end
 
   def create
-    # Implemented this way for simplicity. In production, this is done in delayed job.
+    # Implemented this way for simplicity. In production, will be implemented using delayed job.
     shelters_importer = ShelterImporter.new(petfinder_api_key)
     shelters = shelters_importer.import(import_params["zipcode"])
 

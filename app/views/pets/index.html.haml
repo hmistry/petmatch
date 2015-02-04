@@ -1,4 +1,9 @@
 %h1 Pets
+%h4
+  %ul.list-inline
+    %li= link_to "All", pets_path
+    %li= link_to "Cats", pets_path(animal: "cat")
+    %li= link_to "Dogs", pets_path(animal: "dog")
 %br
 
 - @pets.each_slice(3) do |three_pets|

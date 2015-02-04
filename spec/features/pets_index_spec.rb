@@ -62,5 +62,24 @@ RSpec.describe 'Pets Index', type: :feature do
       expect(links[0]).to have_text(good_dog.name.titleize)
       expect(links[1]).to have_text(acme_shelter.name.titleize)
     end
+
+    it 'has All, Cats and Dogs link' do
+      pets = page.all('h4')
+      links = pets.first.all('a')
+
+      expect(links.count).to eq(3)
+      expect(links[0]).to have_text("All")
+      expect(links[1]).to have_text("Cats")
+      expect(links[2]).to have_text("Dogs")
+    end
+
+    it 'links All, Cats and Dogs have 0, 1, 1 params respectively' do
+      pets = page.all('h4')
+      links = pets.first.all('a')
+
+      expect(links[0][:href].include?("")).to eq(true)
+      expect(links[1][:href].include?("cat")).to eq(true)
+      expect(links[2][:href].include?("dog")).to eq(true)
+    end
   end
 end
