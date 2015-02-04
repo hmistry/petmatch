@@ -25,6 +25,7 @@ module Petfinder
       @keys_del.each { |k| hash.delete(k) }
     end
 
+    # Remove $t keys for values
     def clean_values(h)
       return nil if h.empty?
       return h["$t"] if h.has_key?("$t")
@@ -47,7 +48,6 @@ module Petfinder
   end
 
   class PetCleaner < Cleaner
-    # ["options", "breeds", "shelterPetId", "status", "name", "contact", "description", "sex", "age", "size", "mix", "shelterId", "lastUpdate", "media", "animal", "id_pf"]
     def initialize
       @keys_ren = [{old: "id", new: "id_pf"}, {old: "shelterPetId", new: "shelter_pet_id_pf"}]
       @keys_del = %w(id shelterPetId shelterId lastUpdate)
