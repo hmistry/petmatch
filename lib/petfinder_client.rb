@@ -13,24 +13,25 @@ module Petfinder
     def find_shelters(zipcode)
       api_get("/shelter.find", {location: zipcode})
 
-      return nil if json_invalid? || @json["petfinder"]["shelters"]["shelter"].nil?
+      return nil if json_invalid? || json_shelters.nil?
 
-      clean_json(ShelterCleaner.new, @json["petfinder"]["shelters"]["shelter"])
-      @json["petfinder"]["shelters"]["shelter"]
+      clean_json(ShelterCleaner.new, json_shelters)
+      json_shelters
     end
 
     def get_pets(shelter_id)
       api_get("/shelter.getPets", {id: shelter_id})
 
-      return nil if json_invalid? || @json["petfinder"]["pets"]["pet"].nil?
+      return nil if json_invalid? || json_pets.nil?
 
-      clean_json(PetCleaner.new, @json["petfinder"]["pets"]["pet"])
-      @json["petfinder"]["pets"]["pet"]
+      clean_json(PetCleaner.new, json_pets)
+      json_pets
     end
 
     def api_get(url, params)
       query = @options.merge(params)
       response = self.class.get(url, {query: query})
+
       @json = nil
       @json = JSON.parse(response.body) if response.code.to_i == 200
     end
@@ -45,6 +46,14 @@ module Petfinder
 
     def clean_json(cleaner, json)
       cleaner.clean_all(json)
+    end
+
+    def json_pets
+      @json["petfinder"]["pets"]["pet"]
+    end
+
+    def json_shelters
+      @json["petfinder"]["shelters"]["shelter"]
     end
   end
 

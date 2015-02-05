@@ -3,9 +3,9 @@ class PetsController < ApplicationController
 
   def index
     if animal_params.empty?
-      @pets = Pet.all.paginate(page: page_params[:page], per_page: 12)
+      @pets = Pet.includes(:shelter).all.paginate(page: page_params[:page], per_page: 12)
     else
-      @pets = Animal.find_by(type: animal_params["animal"].capitalize).pets.paginate(page: page_params[:page], per_page: 12)
+      @pets = Pet.includes(:animal, :shelter).where(animal: Animal.const_get(animal_params["animal"].upcase)).paginate(page: page_params[:page], per_page: 12)
     end
   end
 
@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 
   private
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = Pet.includes(:animal, :shelter, :options, :breeds).find(params[:id])
   end
 
   def page_params
